@@ -1,0 +1,20 @@
+syntax = "proto3";
+package com.seezoon.billno;
+option go_package="github.com/seezoon-go-stub/billno-server-stub;pb";
+option java_package="com.seezoon.stub.billno";
+option java_multiple_files = true;
+import "validate/validate.proto";
+
+
+message GetBillnoReq {
+  string biz_code = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetBillnoResp {
+  uint64 billno = 1;
+}
+
+service Billno {
+  // 获取单号
+  rpc GetBillno(GetBillnoReq) returns(GetBillnoResp) {};
+}

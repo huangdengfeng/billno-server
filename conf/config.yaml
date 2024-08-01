@@ -1,0 +1,22 @@
+server:
+  listen: :6100
+log:
+  filename: logs/app.log
+  # M
+  maxSize: 1024
+  # Day
+  maxAge: 10
+  level: debug
+  reportCaller: false
+  outputToConsole: true
+db:
+  # user:password , timeout for connection timeout
+  dsn: '%s:%s@tcp(127.0.0.1:3306)/billno_db?charset=utf8mb4&parseTime=True&loc=Local&timeout=2s&readTimeout=60s'
+  user: root
+  password: 12345678
+  maxOpenConns: 10
+  maxIdleConns: 1
+  # S
+  connMaxLifetime: 3600
+  # S
+  connMaxIdleTime: 600
