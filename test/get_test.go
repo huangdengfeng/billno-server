@@ -1,6 +1,7 @@
 package test
 
 import (
+	"billno-server/entity/config"
 	"billno-server/entity/pb"
 	"context"
 	"fmt"
@@ -38,4 +39,10 @@ func TestGet(t *testing.T) {
 	}
 	group.Wait()
 	fmt.Println("success")
+}
+
+func TestDB(t *testing.T) {
+	result := config.SqlClient.Table("t_billno").Where("biz_code = ?", "test").Update("biz_desc", "tes1t")
+	fmt.Println(result.Error)
+	fmt.Println(result.RowsAffected)
 }

@@ -46,7 +46,7 @@ func (d *billnoDaoImpl) Update(tx *gorm.DB, bizCode string, current uint64) erro
 	if result.Error != nil {
 		return errs.SqlError.Newf(result.Error)
 	}
-	if result.RowsAffected > 1 {
+	if result.RowsAffected != 1 {
 		return errs.SqlAffectError.Newf(1, result.RowsAffected)
 	}
 	return nil
