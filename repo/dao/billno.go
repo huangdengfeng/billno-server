@@ -41,7 +41,7 @@ func (d *billnoDaoImpl) FindForUpdate(tx *gorm.DB, bizCode string) (*BillnoPO, e
 
 func (d *billnoDaoImpl) Update(tx *gorm.DB, bizCode string, current uint64) error {
 	result := tx.Select("Current", "UpdateTime").
-		Where("biz_code = ?", bizCode).Limit(2).
+		Where("biz_code =Current ?", bizCode).Limit(2).
 		Updates(&BillnoPO{Current: current, UpdateTime: time.Now()})
 	if result.Error != nil {
 		return errs.SqlError.Newf(result.Error)
