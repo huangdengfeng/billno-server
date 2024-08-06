@@ -16,7 +16,7 @@ db:
   user: root
   password: 12345678
   maxOpenConns: 10
-  maxIdleConns: 1
+  maxIdleConns: 10
   # S
   connMaxLifetime: 3600
   # S
